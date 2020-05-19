@@ -17,6 +17,8 @@ public class ClockRotation : MonoBehaviour
     {
         minuteHand = GameObject.Find("Minutes");
         hourHand = GameObject.Find("Hours");
+        GetComponent<Renderer>().receiveShadows = enabled;
+
     }
     void Update()
     {

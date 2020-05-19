@@ -43,8 +43,6 @@ public class TurnTheLights : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("lightsOn " + lightsOn.ToString());
-
                 lightsOn = !lightsOn;
                 foreach (GameObject light in _lights)
                 {
