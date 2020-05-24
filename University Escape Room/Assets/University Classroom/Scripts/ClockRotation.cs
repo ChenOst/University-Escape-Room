@@ -37,8 +37,8 @@ public class ClockRotation : MonoBehaviour
             secondInt = 0;
             minuteInt++;
         }
-        iTween.RotateTo(minuteHand, iTween.Hash("z", minuteInt * -1 * 6, "time", 1, "easetype", "easeOutElastic"));
+        //iTween.RotateTo(minuteHand, iTween.Hash("z", minuteInt * -1 * 6, "time", 1, "easetype", "easeOutElastic"));
         float hourDistance = (float)(minuteInt) / 60f;
-        iTween.RotateTo(hourHand, iTween.Hash("z", hourDistance * 360 / 12 * -1 , "time", 1, "easetype", "easeOutElastic"));
+        //iTween.RotateTo(hourHand, iTween.Hash("z", hourDistance * 360 / 12 * -1 , "time", 1, "easetype", "easeOutElastic"));
     }
 }
