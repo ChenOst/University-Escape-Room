@@ -10,7 +10,7 @@ public class UpdateScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        plyer = GameObject.Find("Camera").GetComponent<Player>();
+        plyer = GameObject.Find("Player").GetComponent<Player>();
         ScoreTxt = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
@@ -19,6 +19,5 @@ public class UpdateScore : MonoBehaviour
     {
         int score = plyer.getScore();
         ScoreTxt.text = score.ToString();
-
     }
 }
