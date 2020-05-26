@@ -6,10 +6,10 @@ public class MovePlayer : MonoBehaviour
 {
     private CharacterController controller;
     [SerializeField]
-    private float speed = 20f;
+    private float speed;
     private float gravity = -9.81f;
     [SerializeField]
-    private float jumpHeight = 1f;
+    private float jumpHeight;
     Vector3 velovity;
     [SerializeField]
     private Transform groundCheck;
