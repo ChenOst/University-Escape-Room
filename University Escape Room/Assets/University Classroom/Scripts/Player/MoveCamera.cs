@@ -8,6 +8,7 @@ public class MoveCamera : MonoBehaviour
     [SerializeField]
     private Transform playerBody;
     float xRotation = 0f;
+
     void Start()
     {
         //Cursor.lockState = CursorLockMode.Locked;
@@ -22,5 +23,6 @@ public class MoveCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+        
     }
 }

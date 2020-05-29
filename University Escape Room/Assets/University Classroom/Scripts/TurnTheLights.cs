@@ -8,7 +8,8 @@ public class TurnTheLights : MonoBehaviour
     private bool lightsOn = false;
     private bool canActive = false;
     private GameObject[] _lights;
-    public GameObject panel;
+    [SerializeField]
+    private GameObject panel;
     // Start is called before the first frame update
     void Start()
     {
