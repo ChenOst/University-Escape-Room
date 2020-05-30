@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveToEmptyState : MonoBehaviour
+public class EndAnimation : MonoBehaviour
 {
     public Animator animator;
     bool AnimationEnded = false;
@@ -13,7 +13,7 @@ public class MoveToEmptyState : MonoBehaviour
     {
         if (AnimationEnded)
         {
-            gameObject.SetActive(false);
+            animator.enabled = false;
         }
     }
 
