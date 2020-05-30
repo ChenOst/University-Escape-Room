@@ -2251,6 +2251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1332305515}
   MainCamera: {fileID: 1609988598}
+  Player: {fileID: 1016545212}
 --- !u!1001 &506657111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4138,6 +4139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1332305515}
   MainCamera: {fileID: 1609988598}
+  Player: {fileID: 1016545212}
 --- !u!1001 &936425058
 PrefabInstance:
   m_ObjectHideFlags: 0
