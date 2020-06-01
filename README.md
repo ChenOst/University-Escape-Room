@@ -16,10 +16,11 @@ information in a simple and enjoyable way.
 
 The game is tailored to all levels of students,
 the player can choose level of difficulty in any question and get a score accordingly.
-**The higher the question level the higher the score!**
 
-The player must escape the room before the time runs out. :clock3:
+**The higher the question level the higher the score!** :star: :star: :star:
 
-:mortar_board: **Good Luck! and have fun** :100:
+The player must escape the room before the time runs out. :hourglass_flowing_sand:
+
+**Good Luck! and have fun**
 
 ![](Game_Version_1.gif)
