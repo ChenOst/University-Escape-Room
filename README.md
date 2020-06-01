@@ -64,4 +64,10 @@ the following list shows all the objects we created:
         - [x] Book
             - [ ] Formula sheet
             
-#### Itch
+.markdown-body {
+  --markdown-radius: 3px;
+  --markdown-font: Papyrus, serif;
+  --markdown-text: #333;
+  --markdown-title: hotpink;
+  --markdown-lineHeight: 2;
+}
