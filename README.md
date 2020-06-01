@@ -23,6 +23,8 @@ The player must escape the room before the time runs out. :hourglass_flowing_san
 
 **Good Luck! and have fun**
 
+> #### [Play in Itch :video_game:](https://github.com/ChenOst)
+
 ![](Game_Version_1.gif)
 
 ### First 30 seconds
@@ -64,6 +66,3 @@ the following list shows all the objects we created:
         - [x] Book
             - [ ] Formula sheet
             
-> #### Play in Itch :video_game:
->
-> Link
