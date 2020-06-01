@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class EndAnimation : MonoBehaviour
 {
-    public Animator animator;
+    [SerializeField]
+    private Animator animator;
     bool AnimationEnded = false;
 
     // Update is called once per frame

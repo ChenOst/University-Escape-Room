@@ -14,7 +14,8 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private Transform groundCheck;
     private float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    [SerializeField]
+    private LayerMask groundMask;
     bool isGrounded;
 
     // Start is called before the first frame update
