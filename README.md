@@ -23,7 +23,7 @@ The player must escape the room before the time runs out. :hourglass_flowing_san
 
 **Good Luck! and have fun**
 
-> #### [Play in Itch :video_game:](https://github.com/ChenOst)
+#### [Play in Itch](https://github.com/ChenOst) :video_game:
 
 ![](Game_Version_1.gif)
 
