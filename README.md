@@ -64,10 +64,8 @@ the following list shows all the objects we created:
         - [x] Book
             - [ ] Formula sheet
             
-.markdown-body {
-  --markdown-radius: 3px;
-  --markdown-font: Papyrus, serif;
-  --markdown-text: #333;
-  --markdown-title: hotpink;
-  --markdown-lineHeight: 2;
-}
+<!-- condensed for clarity! -->
+<blockquote class="callout callout_info" theme="🎅">
+  <h3>🎅 Old Saint Nick</h3>
+  <p>'Twas the night before Christmas, when all through the house not a creature was stirring, not even a mouse. The stockings were hung by the chimney with care, in hopes that St. Nicholas soon would be there. The children were nestled all snug in their beds, while visions of sugar plums danced in their heads.</p>
+</blockquote>
