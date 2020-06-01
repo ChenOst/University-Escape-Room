@@ -24,3 +24,44 @@ The player must escape the room before the time runs out. :hourglass_flowing_san
 **Good Luck! and have fun**
 
 ![](Game_Version_1.gif)
+
+### First 30 seconds
+
+You find yourself locked in a locked auditorium after falling asleep in a math class. 
+
+The door is locked and there is no visible key. 
+
+You can start walking around the room freely in search of a way to open the door.
+
+There are many clues scattered throughout the room, once you found and resolved 
+the clue you will get a hint of the next one that will bring you closer to the exit. 
+
+#### Version 1
+In this version we added the basics and created the first thirty seconds of the game, 
+the following list shows all the objects we created:
+- [x] First Scene - Main Menu
+    - [x] Start Game button
+    - [ ] Credits
+    - [x] Exit button
+    - [ ] Advanced design
+    
+- [x] Second  Scene - The Game
+    - [x] Room structore
+    - [x] Room accessories
+    - [x] Wake up animation
+    - [x] Player
+        - [x] Players movement
+        - [x] Camera
+        - [ ] Advanced design - players animation
+    - [x] Clues
+        - [x] First clue
+        - [ ] All clues
+        - [ ] Easter egg
+    - [x] Menu
+        - [ ] Calculator
+        - [x] Clock
+        - [x] Score
+        - [x] Book
+            - [ ] Formula sheet
+            
+#### Itch
