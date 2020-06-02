@@ -47,6 +47,38 @@ The room is dark to make the player reach the switch of light that is at the exi
 On the door the player can find his first clue, we
  created a easy clue that will lead the player to another area in the room
  so we allow the player to see the room before it begins with the heavier hints.
+ 
+### Scripts
+#### Player :sunglasses:
+The player object contains 3 scripts: [Player Scripts](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/Scripts/Player)
+- [Move Player](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Player/MovePlayer.cs) - moves the player around with arrows ot AWSD keys.
+- [Move Camera](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Player/MoveCamera.cs) - moves the camera with the mouse.
+- [Player](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Player/Player.cs) - contains all the information of the player (score etc.).
+
+#### Clues :mag:
+The clue objects in the game contains 2 scripts:
+- [ActiveClue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/ActiveClue.cs) - Activate the clue if the player is close and enters E key.
+- [Clue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Clue.cs) - contains all the information of the clue (clueId, rightAnswer, Clue question etc.).
+
+#### Lights :bulb:
+- [ActiveClue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/TurnTheLights.cs) -
+This script turn off and on the lights in the room, if the player is close to the switch object and presses E key.
+
+#### Message :envelope:
+- [FirstMessage](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/FirstMessage.cs) -
+The message pops up only once, after the wake up animation was ended. It gives the player more inforamtion about the game.
+
+#### Animation :camera:
+- [EndAnimation](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/EndAnimation.cs) -
+In this game we used two animations:
+    - Camera Animation - moves the camera around.
+    - Canvas Animation - fadeout black canvas.
+    
+This two animations gives the player a feeling that he does wake up and get him more into the game world.
+Both animations run straight at the beginning of the game, at the end of all the animation we have defined
+ a variable `AnimationEnded` that symbolizes the end of the animation.
+ When `AnimationEnded` equals true it means that the animation was finished and we can close the animator.
+
 #### Version 1
 In this version we added the basics and created the first thirty seconds of the game, 
 the following list shows all the objects we created:
