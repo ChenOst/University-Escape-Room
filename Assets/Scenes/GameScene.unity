@@ -121,12 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &1830922 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 180032, guid: fe9bfb5044c0cc646baba1ad7d354100,
-    type: 3}
-  m_PrefabInstance: {fileID: 1040957493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5065671 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 03e8c88697b0f164e82d386cb2e46523,
@@ -2354,7 +2348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelsChildrens:
-  - {fileID: 1830922}
+  - {fileID: 1332305515}
   - {fileID: 499066945}
   MainCamera: {fileID: 1609988598}
   Player: {fileID: 1016545212}
@@ -4687,7 +4681,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelsChildrens:
-  - {fileID: 1830922}
+  - {fileID: 1332305515}
   - {fileID: 499066945}
   MainCamera: {fileID: 1609988598}
   Player: {fileID: 1016545212}
