@@ -23,7 +23,7 @@ The player must escape the room before the time runs out. :hourglass_flowing_san
 
 **Good Luck! and have fun**
 
-**[Play in Itch](https://github.com/ChenOst) :video_game:**
+**[Play in Itch](https://chenostrovski.itch.io/university-escape-room) :video_game:**
 
 ![](Game_Version_1.gif)
 
@@ -36,8 +36,17 @@ The door is locked and there is no visible key.
 You can start walking around the room freely in search of a way to open the door.
 
 There are many clues scattered throughout the room, once you found and resolved 
-the clue you will get a hint of the next one that will bring you closer to the exit. 
+the clue you will get a hint of the next one that will bring you closer to the exit.
 
+### Explanation
+
+At the beginning of the game the player wakes up from his sleep.
+
+The room is dark to make the player reach the switch of light that is at the exit door.
+
+On the door the player can find his first clue, we
+ created a easy clue that will lead the player to another area in the room
+ so we allow the player to see the room before it begins with the heavier hints.
 #### Version 1
 In this version we added the basics and created the first thirty seconds of the game, 
 the following list shows all the objects we created:
