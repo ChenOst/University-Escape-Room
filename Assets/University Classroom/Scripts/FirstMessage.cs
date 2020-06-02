@@ -35,7 +35,7 @@ public class FirstMessage : MonoBehaviour
                 CloseBtn.SetActive(true);
                 Text.text = "OOPS... You fell a sleep again in class.\n\nWoke up after everyone has left,\nended up alone,\n" +
                     " locked up in the university\nclass without the exit key.\n\nYou now need to find clues\n and figure out a way out\n so you can finally go home."
-                    + "\n\nGOOD LUCK!";
+                    + "\n\nGOOD LUCK!\n\nUse AWSD keys or the arrows in order to move!";
                 once++;
             }
            
