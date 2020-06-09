@@ -71,15 +71,17 @@ Both animations run straight at the beginning of the game, at the end of all the
  When `AnimationEnded` equals true it means that the animation was finished and we can close the animator.
 
 ## Version week 10
-In this version we added Calculator and Formula sheet.
+In this version we added [Calculator](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/CalculatorProject)
+ and [Formula sheet](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/Book-Page%20Curl).
+
 By clicking on the menu icons you can open the panels.
 Both have two buttons:
 
-Close Btn - close the panel.
+[Close Btn](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Menu/OpenClosePanel.cs) - close the panel.
 
-Move Btn - allows you to move the panel wherever you want.
+[Move Btn](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/CalculatorProject/Scripts/DragTitleBar.cs) - allows you to move the panel wherever you want.
 
-<img src="ReadMeImages/first.png" width=300>  <img src="ReadMeImages/second.png" width=300> 
+<img src="ReadMeImages/first.png" width=300>    <img src="ReadMeImages/second.png" width=300> 
 
 - [x] First Scene - Main Menu
     - [x] Start Game button
