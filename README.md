@@ -27,16 +27,7 @@ The player must escape the room before the time runs out. :hourglass_flowing_san
 
 ![](Game_Version_1.gif)
 
-## First 30 seconds
 
-You find yourself locked in a locked auditorium after falling asleep in a math class. 
-
-The door is locked and there is no visible key. 
-
-You can start walking around the room freely in search of a way to open the door.
-
-There are many clues scattered throughout the room, once you found and resolved 
-the clue you will get a hint of the next one that will bring you closer to the exit.
 
 ## Explanation
 
@@ -79,9 +70,17 @@ Both animations run straight at the beginning of the game, at the end of all the
  a variable `AnimationEnded` that symbolizes the end of the animation.
  When `AnimationEnded` equals true it means that the animation was finished and we can close the animator.
 
-## Version 1
-In this version we added the basics and created the first thirty seconds of the game, 
-the following list shows all the objects we created:
+## Version week 10
+In this version we added Calculator and Formula sheet.
+By clicking on the menu icons you can open the panels.
+Both have two buttons:
+
+Close Btn - close the panel.
+
+Move Btn - allows you to move the panel wherever you want.
+
+<img src="ReadMeImages/first.png" width=300>  <img src="ReadMeImages/second.png" width=300> 
+
 - [x] First Scene - Main Menu
     - [x] Start Game button
     - [ ] Credits
@@ -101,9 +100,8 @@ the following list shows all the objects we created:
         - [ ] All clues
         - [ ] Easter egg
     - [x] Menu
-        - [ ] Calculator
+        - [x] Calculator
         - [x] Clock
         - [x] Score
         - [x] Book
-            - [ ] Formula sheet
-            
+            - [x] Formula sheet
