@@ -7,6 +7,8 @@ public class MovePlayer : MonoBehaviour
     private CharacterController controller;
     [SerializeField]
     private float speed;
+    [SerializeField]
+    private float _rotationSpeed;
     private float gravity = -9.81f;
     [SerializeField]
     private float jumpHeight;
@@ -17,11 +19,13 @@ public class MovePlayer : MonoBehaviour
     [SerializeField]
     private LayerMask groundMask;
     bool isGrounded;
+    Animation animation;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = this.GetComponent<CharacterController>();
+        animation = this.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -32,10 +36,7 @@ public class MovePlayer : MonoBehaviour
         {
             velovity.y = -2f;
         }
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 direction = transform.right * x + transform.forward * z;
+        Vector3 direction = transform.forward * Input.GetAxis("Vertical");
         controller.Move(direction * speed * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
@@ -43,5 +44,6 @@ public class MovePlayer : MonoBehaviour
         }
         velovity.y += gravity * Time.deltaTime;
         controller.Move(velovity * Time.deltaTime);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
     }
 }
