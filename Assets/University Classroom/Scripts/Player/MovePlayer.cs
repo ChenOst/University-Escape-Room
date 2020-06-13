@@ -36,14 +36,77 @@ public class MovePlayer : MonoBehaviour
         {
             velovity.y = -2f;
         }
-        Vector3 direction = transform.forward * Input.GetAxis("Vertical");
-        controller.Move(direction * speed * Time.deltaTime);
+
+        WalkForward();
+        WalkBack();
+        RotateRight();
+        RotateLeft();
+        Jump();
+
+        velovity.y += gravity * Time.deltaTime;
+        controller.Move(velovity * Time.deltaTime);
+    }
+
+    void WalkForward()
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            Vector3 direction = transform.forward * Input.GetAxis("Vertical");
+            controller.Move(direction * speed * Time.deltaTime);
+            //animation.Stop("StandingFree");
+            animation.Play("walk");
+        }
+        else
+        {
+            animation.Stop("walk");
+        }
+    }
+    void WalkBack()
+    {
+       
+        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            Vector3 direction = transform.forward * Input.GetAxis("Vertical");
+            controller.Move(direction * speed * Time.deltaTime);
+            //animation.Stop("StandingFree");
+            animation.Play("walking_back");
+        }
+        else
+        {
+            animation.Stop("walking_back");
+        }
+    }
+    void RotateRight()
+    {
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+            animation.Play("Moving_right");
+        }
+        else
+        {
+            animation.Stop("Moving_right");
+        }
+    }
+    void RotateLeft()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+            animation.Play("Moving_left");
+        }
+        else
+        {
+            animation.Stop("Moving_left");
+        }
+    }
+
+    void Jump()
+    {
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velovity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
-        velovity.y += gravity * Time.deltaTime;
-        controller.Move(velovity * Time.deltaTime);
-        transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+
     }
 }
