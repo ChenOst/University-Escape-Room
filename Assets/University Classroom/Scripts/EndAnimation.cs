@@ -6,21 +6,22 @@ using UnityEngine.UI;
 public class EndAnimation : MonoBehaviour
 {
     [SerializeField]
-    private Animator animator;
-    bool AnimationEnded = false;
+    private Animator _animator;
+    private bool _animationEnded = false;
 
     // Update is called once per frame
     void Update()
     {
-        if (AnimationEnded)
+        if (_animationEnded)
         {
-            animator.enabled = false;
+            _animator.enabled = false;
         }
     }
 
+    // This funciton called in the end of the waking up animations (Fade_out and Camera_Rotate)
     public void AnimatinoStatusUpdate()
     {
-        AnimationEnded = true;
+        _animationEnded = true;
     }
 
 }

@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class OpenClosePanel : MonoBehaviour
 {
+    [Tooltip("All the objects that needs to be Active/Inactive")]
     [SerializeField]
-    GameObject []panelsChildrens;
+    private GameObject[]panelsChildrens;
     [SerializeField]
-    GameObject MainCamera;
+    private GameObject _mainCamera;
     [SerializeField]
-    GameObject Player;
+    private GameObject _player;
 
+    // Set Active 
     public void Open()
     {
         foreach (GameObject child in panelsChildrens)
         {
             child.SetActive(true);
         }
-       
-        MainCamera.transform.GetComponent<MoveCamera>().enabled = false;
-        Player.transform.GetComponent<MovePlayer>().enabled = false;
+        // If object is active the player can't move and can't move the camera
+        _mainCamera.transform.GetComponent<MoveCamera>().enabled = false;
+        _player.transform.GetComponent<MovePlayer>().enabled = false;
     }
     public void Close()
     {
@@ -27,7 +29,8 @@ public class OpenClosePanel : MonoBehaviour
         {
             child.SetActive(false);
         }
-        MainCamera.transform.GetComponent<MoveCamera>().enabled = true;
-        Player.transform.GetComponent<MovePlayer>().enabled = true;
+        // If object is not active the player can move and can move the camera
+        _mainCamera.transform.GetComponent<MoveCamera>().enabled = true;
+        _player.transform.GetComponent<MovePlayer>().enabled = true;
     }
 }

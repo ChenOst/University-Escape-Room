@@ -5,52 +5,56 @@ using UnityEngine.UI;
 
 public class ShowTime : MonoBehaviour
 {
-    Text timeTxt;
-    int oldSeconds;
-    int secondInt = 0;
-    int minuteInt = 0;
-    int hourInt = 0;
-    string minuteStr = "00";
-    string hourStr = "00";
+    private Text _timeTxt;
+    private int _oldSeconds;
+    private int _secondInt = 0;
+    private int _minuteInt = 0;
+    private int _hourInt = 0;
+    private string _minuteStr = "00";
+    private string _hourStr = "00";
+
     // Start is called before the first frame update
     void Start()
     {
-        timeTxt = GameObject.Find("DigitalTimeText").GetComponent<Text>();
+        _timeTxt = GameObject.Find("DigitalTimeText").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Update the time evety second
         int seconds = (int)Time.time;
-        if (seconds > oldSeconds)
+        if (seconds > _oldSeconds)
         {
             UpdateTime();
         }
-        oldSeconds = seconds;
+        _oldSeconds = seconds;
     }
     void UpdateTime()
     {
-        secondInt++;
-        if (secondInt > 59)
+        _secondInt++;
+        // If the seconds become a minute
+        if (_secondInt > 59)
         {
-            secondInt = 0;
-            minuteInt++;
-            minuteStr = minuteInt.ToString();
-            if (minuteStr.Length < 2)
+            _secondInt = 0;
+            _minuteInt++;
+            _minuteStr = _minuteInt.ToString();
+            if (_minuteStr.Length < 2)
             {
-                minuteStr = "0" + minuteStr;
+                _minuteStr = "0" + _minuteStr;
             }
         }
-        if (minuteInt > 59)
+        // If the minutes become an hour
+        if (_minuteInt > 59)
         {
-            minuteInt = 0;
-            hourInt++;
-            hourStr = hourInt.ToString();
-            if (hourStr.Length < 2)
+            _minuteInt = 0;
+            _hourInt++;
+            _hourStr = _hourInt.ToString();
+            if (_hourStr.Length < 2)
             {
-                hourStr = "0" + hourStr;
+                _hourStr = "0" + _hourStr;
             }
         }
-        timeTxt.text = hourStr + ":" + minuteStr;
+        _timeTxt.text = _hourStr + ":" + _minuteStr;
     }
 }

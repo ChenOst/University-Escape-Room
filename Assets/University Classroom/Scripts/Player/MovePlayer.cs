@@ -4,47 +4,51 @@ using UnityEngine;
 
 public class MovePlayer : MonoBehaviour
 {
-    private CharacterController controller;
     [SerializeField]
-    private float speed;
+    private float _speed;
     [SerializeField]
     private float _rotationSpeed;
-    private float gravity = -9.81f;
     [SerializeField]
-    private float jumpHeight;
-    Vector3 velovity;
+    private float _jumpHeight;
     [SerializeField]
-    private Transform groundCheck;
-    private float groundDistance = 0.4f;
+    private Transform _groundCheck;
     [SerializeField]
-    private LayerMask groundMask;
-    bool isGrounded;
-    Animation animation;
+    private LayerMask _groundMask;
+
+    private float _gravity = -9.81f;
+    private float _groundDistance = 0.4f;
+    private Vector3 _velovity;
+    private bool _isGrounded;
+
+    private CharacterController _controller;
+    private Animation _animation;
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = this.GetComponent<CharacterController>();
-        animation = this.GetComponent<Animation>();
+        _controller = this.GetComponent<CharacterController>();
+        _animation = this.GetComponent<Animation>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velovity.y < 0)
+        // Make sure that the player will stay on ground
+        _isGrounded = Physics.CheckSphere(_groundCheck.position, _groundDistance, _groundMask);
+        if (_isGrounded && _velovity.y < 0)
         {
-            velovity.y = -2f;
+            _velovity.y = -2f;
         }
 
+        _velovity.y += _gravity * Time.deltaTime;
+        _controller.Move(_velovity * Time.deltaTime);
+
+        // Player options of movement - also activates the movement animations
         WalkForward();
         WalkBack();
         RotateRight();
         RotateLeft();
         Jump();
-
-        velovity.y += gravity * Time.deltaTime;
-        controller.Move(velovity * Time.deltaTime);
     }
 
     void WalkForward()
@@ -52,13 +56,13 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             Vector3 direction = transform.forward * Input.GetAxis("Vertical");
-            controller.Move(direction * speed * Time.deltaTime);
+            _controller.Move(direction * _speed * Time.deltaTime);
             //animation.Stop("StandingFree");
-            animation.Play("walk");
+            _animation.Play("walk");
         }
         else
         {
-            animation.Stop("walk");
+            _animation.Stop("walk");
         }
     }
     void WalkBack()
@@ -67,13 +71,13 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             Vector3 direction = transform.forward * Input.GetAxis("Vertical");
-            controller.Move(direction * speed * Time.deltaTime);
+            _controller.Move(direction * _speed * Time.deltaTime);
             //animation.Stop("StandingFree");
-            animation.Play("walking_back");
+            _animation.Play("walking_back");
         }
         else
         {
-            animation.Stop("walking_back");
+            _animation.Stop("walking_back");
         }
     }
     void RotateRight()
@@ -81,11 +85,11 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
-            animation.Play("Moving_right");
+            _animation.Play("Moving_right");
         }
         else
         {
-            animation.Stop("Moving_right");
+            _animation.Stop("Moving_right");
         }
     }
     void RotateLeft()
@@ -93,19 +97,18 @@ public class MovePlayer : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, Input.GetAxis("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
-            animation.Play("Moving_left");
+            _animation.Play("Moving_left");
         }
         else
         {
-            animation.Stop("Moving_left");
+            _animation.Stop("Moving_left");
         }
     }
-
     void Jump()
     {
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded)
         {
-            velovity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            _velovity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
         }
 
     }

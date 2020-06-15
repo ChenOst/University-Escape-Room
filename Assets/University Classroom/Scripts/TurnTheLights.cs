@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class TurnTheLights : MonoBehaviour
 {
-    private bool lightsOn = false;
-    private bool canActive = false;
-    private GameObject[] _lights;
     [SerializeField]
-    private GameObject panel;
+    private GameObject _panel;
+    private GameObject[] _lights;
+
+    private bool _lightsOn = false;
+    private bool _canActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class TurnTheLights : MonoBehaviour
         {
             foreach (GameObject light in _lights)
             {
-                light.SetActive(lightsOn);
+                light.SetActive(_lightsOn);
             }
         }
     }
@@ -26,28 +28,31 @@ public class TurnTheLights : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            canActive = true;
-            panel.SetActive(true);
+            _canActive = true;
+            _panel.SetActive(true);
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
         {
-            canActive = false;
-            panel.SetActive(false);
+            _canActive = false;
+            _panel.SetActive(false);
         }
     }
     void Update()
     {
-        if (canActive)
+        // If the player is next to the Switch he can active the lights
+        if (_canActive)
         {
+            // The lights staus change when the player clicks E keys
             if (Input.GetKeyDown(KeyCode.E))
             {
-                lightsOn = !lightsOn;
+                _lightsOn = !_lightsOn;
+                // Change all the lights in the room
                 foreach (GameObject light in _lights)
                 {
-                    light.SetActive(lightsOn);
+                    light.SetActive(_lightsOn);
                 }
             }
         }

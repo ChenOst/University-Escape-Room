@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class UpdateScore : MonoBehaviour
 {
-    Player plyer;
-    Text ScoreTxt;
+    private Player _plyer;
+    private Text _scoreTxt;
+
     // Start is called before the first frame update
     void Start()
     {
-        plyer = GameObject.Find("Player").GetComponent<Player>();
-        ScoreTxt = GameObject.Find("ScoreText").GetComponent<Text>();
+        _plyer = GameObject.Find("Player").GetComponent<Player>();
+        _scoreTxt = GameObject.Find("ScoreText").GetComponent<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        int score = plyer.getScore();
-        ScoreTxt.text = score.ToString();
+        // Updates the score according to the score earned by the player
+        int score = _plyer.getScore();
+        _scoreTxt.text = score.ToString();
     }
 }
