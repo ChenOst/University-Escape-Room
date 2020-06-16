@@ -10,18 +10,22 @@ public class FirstMessage : MonoBehaviour
     [SerializeField]
     private Animator FadeAnimator;
     [SerializeField]
-    private Image Image;
-    [SerializeField]
-    private Text Text;
+    private GameObject[] Images;
     [SerializeField]
     private GameObject CloseBtn;
+    [SerializeField]
+    private GameObject ChangeImagesBtn;
     private static int once = 0;
+    private bool moveToNext = false;
 
     void Start()
     {
-        Image.enabled = false;
-        Text.enabled = false;
+        foreach(GameObject img in Images)
+        {
+            img.SetActive(false);
+        }
         CloseBtn.SetActive(false);
+        ChangeImagesBtn.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -30,16 +34,19 @@ public class FirstMessage : MonoBehaviour
         {
             if (once == 0)
             {
-                Image.enabled = true;
-                Text.enabled = true;
-                CloseBtn.SetActive(true);
-                Text.text = "OOPS... You fell a sleep again in class.\n\nWoke up after everyone has left,\nended up alone,\n" +
-                    " locked up in the university\nclass without the exit key.\n\nYou now need to find clues\n and figure out a way out\n so you can finally go home."
-                    + "\n\nGOOD LUCK!\n\nUse AWSD keys or the arrows in order to move!";
+                Images[0].SetActive(true);
+                Images[1].SetActive(true);
+                ChangeImagesBtn.SetActive(true);
                 once++;
             }
-           
         }
-        
+    }
+
+    public void NextImage()
+    {
+        ChangeImagesBtn.SetActive(false);
+        Images[1].SetActive(false);
+        Images[2].SetActive(true);
+        CloseBtn.SetActive(true);
     }
 }

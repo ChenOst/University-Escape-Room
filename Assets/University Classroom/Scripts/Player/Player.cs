@@ -5,19 +5,21 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     int score = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    bool canOpenDoor = false;
     public int getScore()
     {
         return score;
+    }
+    public int setScore(int points)
+    {
+        return score += points;
+    }
+    public void SetcanOpenDoor()
+    {
+        canOpenDoor = true;
+    }
+    public bool GetcanOpenDoor()
+    {
+        return canOpenDoor;
     }
 }

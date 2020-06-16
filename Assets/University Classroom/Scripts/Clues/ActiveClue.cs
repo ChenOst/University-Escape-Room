@@ -16,12 +16,14 @@ public class ActiveClue : MonoBehaviour
     GameObject MainCamera;
     [SerializeField]
     GameObject Player;
-
+    private Clue _thisClue;
+    [SerializeField]
+    private Text input;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        _thisClue = gameObject.GetComponent<Clue>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -51,13 +53,11 @@ public class ActiveClue : MonoBehaviour
                 foreach (GameObject child in panelsChildrens)
                 {
                     child.SetActive(true);
-                    if (child.GetComponent<Text>() != null)
-                    {
-                        Text text = child.GetComponent<Text>();
-                        text.text = myClue.getQuestion();
-                    }
                 }
-                
+                if (_thisClue.getType() == "A")
+                {
+                    _thisClue.setClueIsComplete();
+                }
             }
         }
     }

@@ -9,9 +9,14 @@ public class ShowTime : MonoBehaviour
     private int _oldSeconds;
     private int _secondInt = 0;
     private int _minuteInt = 0;
-    private int _hourInt = 0;
+    private string _secondStr = "00";
     private string _minuteStr = "00";
-    private string _hourStr = "00";
+
+    [SerializeField]
+    private Animator CameraAnimator;
+    [SerializeField]
+    private Animator FadeAnimator;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,17 +27,25 @@ public class ShowTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update the time evety second
-        int seconds = (int)Time.time;
-        if (seconds > _oldSeconds)
+        if (!CameraAnimator.enabled && !FadeAnimator.enabled)
         {
-            UpdateTime();
+            // Update the time evety second
+            int seconds = (int)Time.time;
+            if (seconds > _oldSeconds)
+            {
+                UpdateTime();
+            }
+            _oldSeconds = seconds;
         }
-        _oldSeconds = seconds;
     }
     void UpdateTime()
     {
         _secondInt++;
+        _secondStr = _secondInt.ToString();
+        if (_secondStr.Length < 2)
+        {
+            _secondStr = "0" + _secondStr;
+        }
         // If the seconds become a minute
         if (_secondInt > 59)
         {
@@ -44,17 +57,6 @@ public class ShowTime : MonoBehaviour
                 _minuteStr = "0" + _minuteStr;
             }
         }
-        // If the minutes become an hour
-        if (_minuteInt > 59)
-        {
-            _minuteInt = 0;
-            _hourInt++;
-            _hourStr = _hourInt.ToString();
-            if (_hourStr.Length < 2)
-            {
-                _hourStr = "0" + _hourStr;
-            }
-        }
-        _timeTxt.text = _hourStr + ":" + _minuteStr;
+        _timeTxt.text = _minuteStr + ":" + _secondStr;
     }
 }
