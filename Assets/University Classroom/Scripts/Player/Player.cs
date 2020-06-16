@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     int score = 0;
     bool canOpenDoor = false;
+
     public int getScore()
     {
         return score;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     public int setScore(int points)
     {
         return score += points;
+
     }
     public void SetcanOpenDoor()
     {

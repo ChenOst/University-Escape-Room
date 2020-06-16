@@ -18,7 +18,7 @@ public class EndAnimation : MonoBehaviour
         }
     }
 
-    // This funciton called in the end of the waking up animations (Fade_out and Camera_Rotate)
+    // This funciton called in the end of the waking up animations
     public void AnimatinoStatusUpdate()
     {
         _animationEnded = true;
