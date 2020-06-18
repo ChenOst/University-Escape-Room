@@ -39,6 +39,26 @@ On the door the player can find his first clue, we
  created a easy clue that will lead the player to another area in the room
  so we allow the player to see the room before it begins with the heavier hints.
  
+There are 6 clues in the room Of these, 3 contain a numerical answer that will later be used in the vault code.
+After the player opened the vault he could escape the room and finally return home.
+
+## Things that might help!
+During the game the player can use the following:
+### Handbook :closed_book:
+
+The book includes formulas, explanations and ways of solving various mathematical questions.
+ The book can be opened and moved to any area of the screen.
+ You can move to the next page by clicking and holding on the bottom corner of the page.
+ 
+### Calculator :1234:
+
+A calculator with basic functions that the user can use throughout the game.
+ The calculator can be opened and moved to any area of the screen.
+ 
+### Information :information_source:
+During the game the player can press the info button, A window will then open with explanations of the game, Like using
+ the keyboard buttons to move, using the mouse and general explanations of the game.
+ 
 ## Scripts
 ### Player :sunglasses:
 The player object contains 3 scripts: [Player Scripts](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/Scripts/Player)
@@ -50,6 +70,11 @@ The player object contains 3 scripts: [Player Scripts](https://github.com/ChenOs
 The clue objects in the game contains 2 scripts:
 - [ActiveClue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/ActiveClue.cs) - Activate the clue if the player is close and enters E key.
 - [Clue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Clue.cs) - contains all the information of the clue (clueId, rightAnswer, Clue question etc.).
+- [EndClue](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Clues/EndClue.cs) - some clues don't have mathematical answer, 
+So if the player finishes the hint that comes after this hint, close this hint. Is intended to prevent player confusion.
+- [SendAnswer](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Clues/SendAnswer.cs) - Responsible for sending and checking Hint's answer.
+- [ActiveSafe](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Clues/ActiveSafe.cs) - Allows the player to open the safe when it is close to it. In addition,
+ the camera changes to allow the player to enter the code.
 
 ### Lights :bulb:
 - [TurnTheLights](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/TurnTheLights.cs) -
@@ -58,9 +83,15 @@ This script turn off and on the lights in the room, if the player is close to th
 ### Message :envelope:
 - [FirstMessage](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/FirstMessage.cs) -
 The message pops up only once, after the wake up animation was ended. It gives the player more inforamtion about the game.
-
+- [DestroyMessage](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Messages/DestroyMessage.cs) - In some clues,
+ another message pops up that comes in 10 seconds. This script destroys this post after this time.
+ 
+### Door :door:
+- [ExitRoom](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/ExitRoom.cs) - Activated when the player finds the exit key and is at the door.
+ The script moves to the next scene and calculates the player points.
+ 
 ### Animation :camera:
-- [EndAnimation](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/EndAnimation.cs) -
+- [EndAnimation](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/EndAnimation.cs) - 
 In this game we used two animations:
     - Camera Animation - moves the camera around.
     - Canvas Animation - fadeout black canvas.
@@ -69,41 +100,3 @@ This two animations gives the player a feeling that he does wake up and get him 
 Both animations run straight at the beginning of the game, at the end of all the animation we have defined
  a variable `AnimationEnded` that symbolizes the end of the animation.
  When `AnimationEnded` equals true it means that the animation was finished and we can close the animator.
-
-## Version week 10
-In this version we added [Calculator](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/CalculatorProject)
- and [Formula sheet](https://github.com/ChenOst/University-Escape-Room/tree/master/Assets/University%20Classroom/Book-Page%20Curl).
-
-By clicking on the menu icons you can open the panels.
-Both have two buttons:
-
-[Close Btn](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/Scripts/Menu/OpenClosePanel.cs) - close the panel.
-
-[Move Btn](https://github.com/ChenOst/University-Escape-Room/blob/master/Assets/University%20Classroom/CalculatorProject/Scripts/DragTitleBar.cs) - allows you to move the panel wherever you want.
-
-<img src="ReadMeImages/first.png" width=300>    <img src="ReadMeImages/second.png" width=300> 
-
-- [x] First Scene - Main Menu
-    - [x] Start Game button
-    - [ ] Credits
-    - [x] Exit button
-    - [ ] Advanced design
-    
-- [x] Second  Scene - The Game
-    - [x] Room structore
-    - [x] Room accessories
-    - [x] Wake up animation
-    - [x] Player
-        - [x] Players movement
-        - [x] Camera
-        - [ ] Advanced design - players animation
-    - [x] Clues
-        - [x] First clue
-        - [ ] All clues
-        - [ ] Easter egg
-    - [x] Menu
-        - [x] Calculator
-        - [x] Clock
-        - [x] Score
-        - [x] Book
-            - [x] Formula sheet
