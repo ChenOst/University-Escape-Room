@@ -17,6 +17,11 @@ public class SendAnswer : MonoBehaviour
     [SerializeField]
     private GameObject[] panelsChildrens;
 
+    [SerializeField]
+    private GameObject textPrefab;
+    [SerializeField]
+    private GameObject message;
+
     public void getAnswer()
     {
         string ans = ansText.text;
@@ -36,6 +41,12 @@ public class SendAnswer : MonoBehaviour
             Player.transform.GetComponent<MovePlayer>().enabled = true;
             _thisClue.GetComponent<Collider>().enabled = false;
             _thisClue.GetComponent<ActiveClue>().enabled = false;
+            ShowText();
         }
+    }
+
+    public void ShowText()
+    {
+        Instantiate(textPrefab, message.transform.position, Quaternion.identity, message.transform);
     }
 }

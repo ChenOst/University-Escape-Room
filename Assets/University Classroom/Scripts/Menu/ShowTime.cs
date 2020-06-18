@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ShowTime : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject _nextSceneCanvas;
+    [SerializeField]
+    private GameObject _playerWonText;
+
     private Text _timeTxt;
     private int _oldSeconds;
     private int _secondInt = 0;
     private int _minuteInt = 0;
     private string _secondStr = "00";
     private string _minuteStr = "00";
-
-    [SerializeField]
-    private Animator CameraAnimator;
-    [SerializeField]
-    private Animator FadeAnimator;
-
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +27,6 @@ public class ShowTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!CameraAnimator.enabled && !FadeAnimator.enabled)
-        {
             // Update the time evety second
             int seconds = (int)Time.time;
             if (seconds > _oldSeconds)
@@ -36,7 +34,7 @@ public class ShowTime : MonoBehaviour
                 UpdateTime();
             }
             _oldSeconds = seconds;
-        }
+        
     }
     void UpdateTime()
     {
@@ -50,7 +48,8 @@ public class ShowTime : MonoBehaviour
         if (_secondInt > 59)
         {
             _secondInt = 0;
-            _minuteInt++;
+            _secondStr = "00";
+           _minuteInt++;
             _minuteStr = _minuteInt.ToString();
             if (_minuteStr.Length < 2)
             {
@@ -58,5 +57,20 @@ public class ShowTime : MonoBehaviour
             }
         }
         _timeTxt.text = _minuteStr + ":" + _secondStr;
+
+        if (_minuteInt == 30)
+        {
+            _nextSceneCanvas.SetActive(true);
+            _playerWonText.SetActive(false);
+            Debug.Log("Game Over: " + System.DateTime.Now);
+            SceneManager.LoadScene("EndGameScene");
+        }
+    }
+
+    public int RemainingTime()
+    {
+        int endTime = 30 * 60; // 30 minutes
+        endTime = endTime - _secondInt - _minuteInt * 60;
+        return endTime;
     }
 }
