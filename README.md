@@ -42,7 +42,19 @@ On the door the player can find his first clue, we
 There are 6 clues in the room Of these, 3 contain a numerical answer that will later be used in the vault code.
 After the player opened the vault he could escape the room and finally return home.
 
+## User Experience
+We want our user experience to be based on the following five things:
+1. **Usability**: Usability of the game's existing functions and operations is easy to use (performing operations, entering content, receiving appropriate feedback from the system).
+
+2. **Aesthetics - UI:** The general appearance of the user interface, its appearance, the use of graphic elements such as colors, shapes, fonts, etc. that will be aesthetic for the user.
+
+3. **Motion and Interpretation**: Feel & Motion: Animation is a trend that cannot be ignored and gives the user a natural flow and cognitive indications of what happened on the screen. Whether in seamless transitions between displays or as a key part of the product character.
+
+4. **Reliability**: Passing reliable information to the user and avoiding mistakes or mistakes, which means that we have to make sure that the solution and the answers to the user's questions are indeed correct and not misleading.
+
+5. **Accessibility**: Creating an information architecture that is appropriate to how the user thinks or searches for information in the game, we need to make sure we explain to the user how well he can play the game and provide information to him easily.
 ## Things that might help!
+
 During the game the player can use the following:
 ### Handbook :closed_book:
 

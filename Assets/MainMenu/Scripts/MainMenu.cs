@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    bool canShow = false;
+    [SerializeField]
+    GameObject Credits;
     public void StartGame()
     {
         Debug.Log("Starting new game: " + System.DateTime.Now);
@@ -13,16 +16,12 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         Debug.Log("Exit the game: " + System.DateTime.Now);
-        #if (UNITY_EDITOR || DEVELOPMENT_BUILD)
-        Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
-        #endif
-        #if (UNITY_EDITOR)
-            UnityEditor.EditorApplication.isPlaying = false;
-#elif (UNITY_STANDALONE)
-            Application.Quit();
-#elif (UNITY_WEBGL)
-            Application.OpenURL("about:https://github.com/ChenOst");
-#endif
-
+        Application.ExternalEval("window.open(\"https://github.com/ChenOst/University-Escape-Room\")");
+        Application.OpenURL("about:blank");
+    }
+    public void showCredits()
+    {
+        canShow = !canShow;
+        Credits.SetActive(canShow);
     }
 }
