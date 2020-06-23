@@ -12,6 +12,8 @@ public class TurnTheLights : MonoBehaviour
     private bool _lightsOn = false;
     private bool _canActive = false;
 
+    AudioSource _audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class TurnTheLights : MonoBehaviour
                 light.SetActive(_lightsOn);
             }
         }
+        _audio = gameObject.GetComponent<AudioSource>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -48,6 +51,7 @@ public class TurnTheLights : MonoBehaviour
             // The lights staus change when the player clicks E keys
             if (Input.GetKeyDown(KeyCode.E))
             {
+                _audio.Play();
                 _lightsOn = !_lightsOn;
                 // Change all the lights in the room
                 foreach (GameObject light in _lights)

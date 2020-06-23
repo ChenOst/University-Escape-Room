@@ -19,11 +19,13 @@ public class ActiveClue : MonoBehaviour
     private Clue _thisClue;
     [SerializeField]
     private Text input;
+    AudioSource _source;
 
     // Start is called before the first frame update
     void Start()
     {
         _thisClue = gameObject.GetComponent<Clue>();
+        _source = gameObject.GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -48,6 +50,7 @@ public class ActiveClue : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                _source.Play();
                 MainCamera.transform.GetComponent<MoveCamera>().enabled = false;
                 Player.transform.GetComponent<MovePlayer>().enabled = false;
                 foreach (GameObject child in panelsChildrens)
